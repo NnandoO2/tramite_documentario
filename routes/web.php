@@ -6,7 +6,12 @@ use App\Http\Controllers\NotificacionController;
 // Rutas de envío de formulario
 Route::post('/notificaciones/solicitar', [NotificacionController::class, 'store'])->name('notificaciones.store');
 Route::post('/notificaciones/finalizar/{id}', [NotificacionController::class, 'finalizar'])->name('notificaciones.finalizar');
-
+Route::get('/', function () {
+    return view('welcome'); // O tu vista personalizada
+});
+Route::get('/home', function () {
+    return view('welcome'); // O tu vista personalizada
+})->name('home');
 // Vistas con datos desde el controlador
 Route::get('/notificaciones/mesadepartes/bandeja', [NotificacionController::class, 'bandeja'])->name('notificaciones.mesadepartes.bandeja');
 Route::get('/notificaciones/mesadepartes/elaboracion/{id}', [NotificacionController::class, 'elaborar'])->name('notificaciones.mesadepartes.elaboracion');
